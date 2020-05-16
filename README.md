@@ -7,13 +7,13 @@ dracut-openssh is another Dracut module to start sshd in the initramfs.
 
 The main purpose of this module is to allow entering LUKS volumes passphrase at system boot time remotely.
 
-This project is strongly inspired by [dracut-sshd][dsshd] from @gsauthof, and some files comes from that, but adapted to work better with my systems.
+This project is strongly inspired by [dracut-sshd][dsshd], and some files comes from that, but adapted to work better with my systems.
 
 # Dependencies
 
     - dracut >= 0.49
     - systemd
-    - Dracut `network` or `systemd-networkd` module
+    - Dracut "network" or "systemd-networkd" module
 
 # Installation
     - make install
