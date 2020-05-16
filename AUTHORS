@@ -1,0 +1,10 @@
+dracut-openssh was created by David GUGLIELMI in May 2020.
+It's a derivated work from dracut-sshd project.
+
+The dracut-openssh authors:
+
+    David GUGLIELMI <https://github.com/dguglielmi>
+
+Thanks to the original authors and contributors from dracut-sshd:
+
+    Georg Sauthoff <https://github.com/gsauthof>
