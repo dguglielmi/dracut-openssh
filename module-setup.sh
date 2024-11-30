@@ -54,6 +54,20 @@ install() {
   inst_simple "${moddir}/sshd-banner" /etc/ssh/sshd-banner
   inst_simple "$(which sshd)"
 
+  # Copy ssh helper executables for OpenSSH 9.8+
+  # /usr/lib/ssh          -> Arch
+  # /usr/lib(64)/misc     -> Gentoo
+  # /usr/libexec/openssh  -> Fedora
+  # /usr/libexec/ssh      -> openSUSE
+  # source: https://github.com/gsauthof/dracut-sshd/blob/master/46sshd/module-setup.sh
+  local d
+  for d in /usr/lib/ssh /usr/lib64/misc /usr/lib/misc /usr/libexec/openssh /usr/libexec/ssh ; do
+    if [ -f "${d}"/sshd-session ]; then
+      inst_simple "${d}"/sshd-session
+      break
+    fi
+  done
+
   inst_simple "${moddir}/sshd.service" ${systemdsystemunitdir}/sshd.service
   mkdir -p "${initdir}/etc/sysconfig"
   echo "SSHD_OPTS=\"${sshd_opts}\"" > "${initdir}/etc/sysconfig/sshd"
