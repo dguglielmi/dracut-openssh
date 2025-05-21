@@ -63,7 +63,7 @@ install() {
   local d
   for d in /usr/lib/ssh /usr/lib64/misc /usr/lib/misc /usr/libexec/openssh /usr/libexec/ssh ; do
     if [ -f "${d}"/sshd-session ]; then
-      inst_simple "${d}"/sshd-session
+      inst_multiple -o "${d}"/{sshd-session,sshd-auth}
       break
     fi
   done
